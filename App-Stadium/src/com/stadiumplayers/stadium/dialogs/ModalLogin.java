@@ -1,5 +1,5 @@
 
-package com.stadiumplayers.stadium.modals;
+package com.stadiumplayers.stadium.dialogs;
 
 import android.app.Dialog;
 import android.app.DialogFragment;

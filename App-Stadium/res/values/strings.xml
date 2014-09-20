@@ -36,8 +36,10 @@
         <item quantity="other">Minutes</item>
     </plurals>
 
-    <!-- main -->
-
+    <!-- Navigation Drawer -->
+    <string name="nav_drawer_profile">Profile</string>
+    <string name="nav_drawer_find_event">Find a Game</string>
+    <string name="nav_drawer_create_event">Create an event</string>
 
     <!-- login -->
     <string name="login_prompt_event">Before you can %s you\'ll have to login</string>

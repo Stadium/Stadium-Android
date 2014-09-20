@@ -1,6 +1,8 @@
 
 package com.stadiumplayers.stadium.common;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -9,10 +11,17 @@ import java.util.Date;
 import java.util.Locale;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.Signature;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.text.format.DateFormat;
 import android.text.format.Time;
+import android.util.Base64;
+import android.util.Log;
 
 import com.stadiumplayers.stadium.App;
 import com.stadiumplayers.stadium.R;
@@ -115,7 +124,7 @@ public class Utils {
     public static String detectTimeFormat() {
         return DateFormat.is24HourFormat(App.getContext()) ? "HH:mm" : "h:mm a";
     }
-    
+
     /**
      * @return True if the time format is 24 hour, (Set in the Android's System
      *         Clock settings)
@@ -139,8 +148,8 @@ public class Utils {
 
         currentTime.set(System.currentTimeMillis());
         eventTime.set(epochTime);
-        
-        // In the past.  (Invalid)
+
+        // In the past. (Invalid)
         if (epochTime < System.currentTimeMillis()) {
             return Utils.getString(R.string.time_old);
         }
@@ -152,7 +161,8 @@ public class Utils {
             if (currentTime.yearDay == eventTime.yearDay && eventTime.hour <= currentTime.hour + 1) {
 
                 verboseTimeStampNeeded = false;
-                stringBuilder.append(eventTime.minute - currentTime.minute)
+                stringBuilder
+                        .append(eventTime.minute - currentTime.minute)
                         .append(" ")
                         .append(Utils.getQuantityString(R.plurals.time_unit_minute,
                                 eventTime.minute - currentTime.minute));
@@ -183,19 +193,41 @@ public class Utils {
         }
 
         if (verboseTimeStampNeeded) {
-            stringBuilder.append(" ")
-                    .append(Utils.getString(R.string.at))
-                    .append(" ")
+            stringBuilder.append(" ").append(Utils.getString(R.string.at)).append(" ")
                     .append(App.getTimeFormat().format(new Date(eventTime.toMillis(false))));
         }
 
         return stringBuilder.toString();
     }
-    
+
     /**
-     * @return A String representation of the currency symbol based on the user's Locale 
+     * @return A String representation of the currency symbol based on the
+     *         user's Locale
      */
     public static String getCurrencySymbol() {
         return Currency.getInstance(Locale.getDefault()).getSymbol();
+    }
+
+    public static void logKeyHash(Context context) {
+        PackageInfo info;
+        try {
+            info = context.getPackageManager().getPackageInfo("com.stadiumplayers.stadium",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md;
+                md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String something = new String(Base64.encode(md.digest(), 0));
+                // String something = new
+                // String(Base64.encodeBytes(md.digest()));
+                Log.e("hash-key", something);
+            }
+        } catch (NameNotFoundException e1) {
+            Log.e("name not found", e1.toString());
+        } catch (NoSuchAlgorithmException e) {
+            Log.e("no such an algorithm", e.toString());
+        } catch (Exception e) {
+            Log.e("exception", e.toString());
+        }
     }
 }
