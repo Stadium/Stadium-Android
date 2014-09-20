@@ -4,9 +4,8 @@
     <!-- Application level -->
     <string name="app_name">Stadium</string>
     <string name="action_settings">Settings</string>
-
-    <!-- Facebook level -->
     <string name="facebook_app_id">740878865980424</string>
+	<string name="maps_v2_api_key">AIzaSyD43llPD_U1biw-gihgvsIDT0gnKLHC2wo</string>
 
     <!-- Generic Strings -->
     <string name="hello_world">Hello world!</string>

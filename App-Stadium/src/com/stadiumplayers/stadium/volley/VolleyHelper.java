@@ -4,11 +4,11 @@ package com.stadiumplayers.stadium.volley;
 
 public class VolleyHelper {
     
-    private static final String TAG = VolleyHelper.class.getSimpleName();
-    
+//    private static final String TAG = VolleyHelper.class.getSimpleName();
+//    
 //    private static final String BASE_URL = "http://justasecading.com/carpuwl/PHP/";
 //    private static final String PHP_SUFFIX = ".php";
-
+//
 //    public static String getRequestUrl(int method, Endpoint endpoint, Map<String, String> params) {
 //        StringBuilder urlBuilder = new StringBuilder(BASE_URL + endpoint.getValue() + PHP_SUFFIX);
 //        

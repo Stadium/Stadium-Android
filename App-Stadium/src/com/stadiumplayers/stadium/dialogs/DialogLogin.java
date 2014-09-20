@@ -1,9 +1,10 @@
 
 package com.stadiumplayers.stadium.dialogs;
 
+import android.app.Activity;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,13 @@ import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.common.Utils;
 
 public class DialogLogin extends DialogFragment implements View.OnClickListener {
-
+    
+    public interface OnDialogLoginListener {
+        public void onLoginSuccessful();
+        public void onLoginFailure();
+        public void onKeepBrowsing();
+    }
+    
     private static String KEY_STRING_ACTION = "keyStringAction";
 
     public static DialogLogin newInstance(String deferredAction) {
@@ -32,8 +39,15 @@ public class DialogLogin extends DialogFragment implements View.OnClickListener 
         return modalLogin;
     }
 
+    private OnDialogLoginListener mListener;
     private TextView mTextMessage;
     private Button mBtnFacebookLogin;
+    
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mListener = (OnDialogLoginListener) activity;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

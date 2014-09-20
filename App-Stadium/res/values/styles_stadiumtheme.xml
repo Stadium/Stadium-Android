@@ -57,6 +57,10 @@
     <style name="ButtonStadiumTheme" parent="android:Widget.Holo.Light.Button">
         <item name="android:background">@drawable/btn_default_selector</item>
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingLeft">@dimen/ui_spacing_normal</item>
+        <item name="android:paddingRight">@dimen/ui_spacing_normal</item>
+        <item name="android:paddingTop">@dimen/ui_spacing_small</item>
+        <item name="android:paddingBottom">@dimen/ui_spacing_small</item>
     </style>
 
     <style name="ImageButtonStadiumTheme" parent="android:Widget.Holo.Light.ImageButton">

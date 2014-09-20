@@ -31,6 +31,7 @@
 
         <com.rperryng.roboto.RobotoButton
             android:id="@+id/login_btn_login"
+            style="@style/ButtonStadiumTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -39,12 +40,12 @@
 
         <com.rperryng.roboto.RobotoButton
             android:id="@+id/login_btn_cancel"
+            style="@style/ButtonStadiumTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Keep browsing"
             app:font="regular" />
-
     </LinearLayout>
 
 </LinearLayout>

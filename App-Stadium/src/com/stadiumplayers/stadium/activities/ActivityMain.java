@@ -1,10 +1,11 @@
 
 package com.stadiumplayers.stadium.activities;
 
-import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,10 +20,13 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.adapters.AdapterNavDrawer;
+import com.stadiumplayers.stadium.dialogs.DialogLogin.OnDialogLoginListener;
 import com.stadiumplayers.stadium.fragments.FragmentMain;
+import com.stadiumplayers.stadium.fragments.FragmentMap;
 import com.stadiumplayers.stadium.models.NavDrawer;
 
-public class ActivityMain extends Activity implements OnClickListener, Session.StatusCallback {
+public class ActivityMain extends FragmentActivity implements OnClickListener,
+        OnDialogLoginListener, Session.StatusCallback {
 
     private CharSequence mTitle;
     private CharSequence mDrawerTitle;
@@ -36,12 +40,12 @@ public class ActivityMain extends Activity implements OnClickListener, Session.S
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         mTitle = getTitle();
         mDrawerTitle = getTitle();
-        
+
         if (savedInstanceState == null) {
-            getFragmentManager()
+            getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.main_fragment_container, new FragmentMain(),
                             FragmentMain.class.getSimpleName()).commit();
@@ -136,21 +140,24 @@ public class ActivityMain extends Activity implements OnClickListener, Session.S
         NavDrawer currentNavDrawerItem = mDrawerItems[position];
 
         switch (currentNavDrawerItem) {
-        
+
         case PROFILE:
             // Do nothing
             break;
-            
+
         case FIND_EVENT:
-            // Do nothing
+            Fragment fragment = new FragmentMap();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragment_container, fragment,
+                            FragmentMap.class.getSimpleName()).commit();
             break;
-            
+
         case CREATE_EVENT:
             // TODO: check for and prompt login if necessary
             break;
-        
         }
-        
+
         setTitle(currentNavDrawerItem.getTitle());
     }
 
@@ -165,4 +172,20 @@ public class ActivityMain extends Activity implements OnClickListener, Session.S
 
         }
     }
+
+    @Override
+    public void onLoginSuccessful() {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void onLoginFailure() {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void onKeepBrowsing() {
+        // TODO Auto-generated method stub
+    }
+
 }
