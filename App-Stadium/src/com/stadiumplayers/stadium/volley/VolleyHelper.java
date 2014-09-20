@@ -1,10 +1,5 @@
 package com.stadiumplayers.stadium.volley;
 
-import java.util.Map;
-
-import android.util.Log;
-
-import com.android.volley.Request.Method;
 
 
 public class VolleyHelper {

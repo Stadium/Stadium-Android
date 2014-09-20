@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.stadiumplayers.stadium"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.rperryng.roboto.RobotoTextView
+        android:id="@+id/login_text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Hello"
+        app:font="light" />
+
+    <com.rperryng.roboto.RobotoTextView
+        android:id="@+id/login_text_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Before you can %s you&apos;ll have to login"
+        app:font="light" />
+
+    <com.rperryng.roboto.RobotoButton
+        android:id="@+id/login_btn_login_fake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="Login with Facebook"
+        app:font="condensedRegular" />
+
+    <com.rperryng.roboto.RobotoButton
+        android:id="@+id/login_btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="Keep browsing"
+        app:font="condensedRegular" />
+
+</LinearLayout>

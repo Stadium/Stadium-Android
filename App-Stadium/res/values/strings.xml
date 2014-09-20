@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Application level -->
     <string name="app_name">Stadium</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     
+    <!-- Facebook level -->
+    <string name="facebook_app_id">740878865980424</string>
+
+    <!-- Generic Strings -->
+    <string name="hello_world">Hello world!</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="at">at</string>
+    <string name="loading">Just a secading</string>
+    <string name="when">When</string>
+    <string name="price">Price</string>
+    <string name="seats">Seats</string>
+    <string name="currency_symbol">$</string>
+    <string name="success">Success</string>
+    <string name="time_old">Can\'t use this time</string>
+    <string name="departing">Departing:&#160;</string>
+    <string name="arriving">Arriving:&#160;</string>
+    
+    <!-- Friendly time language -->
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+
+    <plurals name="time_unit_hour">
+        <item quantity="one">Hour</item>
+        <item quantity="other">Hours</item>
+    </plurals>
+    <plurals name="time_unit_minute">
+        <item quantity="one">Minute</item>
+        <item quantity="other">Minutes</item>
+    </plurals>
+
     <!-- main -->
     <string name="login">login</string>
 

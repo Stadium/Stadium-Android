@@ -1,5 +1,6 @@
 package com.stadiumplayers.stadium.fragments;
 
+import com.stadiumplayers.stadium.R;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.stadiumplayer.android.R;
 
 public class FragmentMain extends Fragment implements View.OnClickListener {
     
