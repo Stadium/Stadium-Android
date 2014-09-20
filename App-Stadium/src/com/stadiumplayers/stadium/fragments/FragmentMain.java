@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.stadiumplayers.stadium.R;
-import com.stadiumplayers.stadium.dialogs.ModalLogin;
+import com.stadiumplayers.stadium.dialogs.DialogLogin;
 
 public class FragmentMain extends Fragment implements View.OnClickListener {
     
@@ -28,8 +28,8 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {        
-        DialogFragment modalLogin = ModalLogin.newInstance("create an event");
-        modalLogin.show(getFragmentManager(), ModalLogin.class.getSimpleName());
+        DialogFragment modalLogin = DialogLogin.newInstance("create an event");
+        modalLogin.show(getFragmentManager(), DialogLogin.class.getSimpleName());
     }
     
 }

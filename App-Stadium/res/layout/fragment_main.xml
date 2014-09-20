@@ -14,7 +14,7 @@
         app:font="light" />
 
     <com.rperryng.roboto.RobotoButton
-        app:font="light"
+        app:font="regular"
         android:id="@+id/main_btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

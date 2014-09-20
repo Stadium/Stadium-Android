@@ -20,12 +20,12 @@ import com.stadiumplayers.stadium.AppData;
 import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.common.Utils;
 
-public class ModalLogin extends DialogFragment implements View.OnClickListener {
+public class DialogLogin extends DialogFragment implements View.OnClickListener {
 
     private static String KEY_STRING_ACTION = "keyStringAction";
 
-    public static ModalLogin newInstance(String deferredAction) {
-        ModalLogin modalLogin = new ModalLogin();
+    public static DialogLogin newInstance(String deferredAction) {
+        DialogLogin modalLogin = new DialogLogin();
         Bundle bundle = new Bundle();
         bundle.putString(KEY_STRING_ACTION, deferredAction);
         modalLogin.setArguments(bundle);
@@ -37,7 +37,7 @@ public class ModalLogin extends DialogFragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.modal_login, null, false);
+        View rootView = inflater.inflate(R.layout.dialog_login, null, false);
 
         mTextMessage = (TextView) rootView.findViewById(R.id.login_text_message);
         mBtnFacebookLogin = (Button) rootView.findViewById(R.id.login_btn_login);

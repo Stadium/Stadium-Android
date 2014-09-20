@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="stadiumtheme_color">#00bcd4</color>
+    <color name="btn_pressed">#0097a7</color>
+    <color name="shadow">#DEDEDE</color>
 </resources>

@@ -55,7 +55,8 @@
     </style>
 
     <style name="ButtonStadiumTheme" parent="android:Widget.Holo.Light.Button">
-        <item name="android:background">@drawable/stadiumtheme_btn_default_holo_light</item>
+        <item name="android:background">@drawable/btn_default_selector</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <style name="ImageButtonStadiumTheme" parent="android:Widget.Holo.Light.ImageButton">

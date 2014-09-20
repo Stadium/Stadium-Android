@@ -13,12 +13,12 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_stadiumtheme</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_stadiumtheme</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Stadiumtheme</item>
-        
-                <!-- Light.DarkActionBar specific -->
+
+        <!-- Light.DarkActionBar specific -->
         <item name="android:actionBarWidgetTheme">@style/Theme.Stadiumtheme.Widget</item>
-		
-		<!-- Ui widgets -->
-		<item name="android:editTextBackground">@drawable/stadiumtheme_edit_text_holo_light</item>
+
+        <!-- Ui widgets -->
+        <item name="android:editTextBackground">@drawable/stadiumtheme_edit_text_holo_light</item>
         <item name="android:textColorHighlight">#9900bcd4</item>
         <item name="android:textSelectHandleLeft">@drawable/stadiumtheme_text_select_handle_left</item>
         <item name="android:textSelectHandleRight">@drawable/stadiumtheme_text_select_handle_right</item>
@@ -38,7 +38,6 @@
         <item name="android:listChoiceBackgroundIndicator">@drawable/stadiumtheme_list_selector_holo_light</item>
         <item name="android:activatedBackgroundIndicator">@drawable/stadiumtheme_activated_background_holo_light</item>
         <item name="android:fastScrollThumbDrawable">@drawable/stadiumtheme_fastscroll_thumb_holo</item>
-
     </style>
 
 </resources>

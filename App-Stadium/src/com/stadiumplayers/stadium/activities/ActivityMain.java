@@ -25,6 +25,7 @@ import com.stadiumplayers.stadium.models.NavDrawer;
 public class ActivityMain extends Activity implements OnClickListener, Session.StatusCallback {
 
     private CharSequence mTitle;
+    private CharSequence mDrawerTitle;
 
     private NavDrawer[] mDrawerItems;
     private DrawerLayout mDrawerLayout;
@@ -35,7 +36,10 @@ public class ActivityMain extends Activity implements OnClickListener, Session.S
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        
+        mTitle = getTitle();
+        mDrawerTitle = getTitle();
+        
         if (savedInstanceState == null) {
             getFragmentManager()
                     .beginTransaction()
@@ -52,14 +56,14 @@ public class ActivityMain extends Activity implements OnClickListener, Session.S
         AdapterNavDrawer adapter = new AdapterNavDrawer(this);
         mDrawerList.setAdapter(adapter);
         mDrawerList.setOnItemClickListener(new DrawerClickListener());
-        
+
         mDrawerListener = new DrawerListener();
         mDrawerLayout.setDrawerListener(mDrawerListener);
-        
+
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
     }
-    
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -82,17 +86,17 @@ public class ActivityMain extends Activity implements OnClickListener, Session.S
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-//        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        
+        // boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+
         return super.onPrepareOptionsMenu(menu);
     }
-    
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (mDrawerListener.onOptionsItemSelected(item)) {
             return true;
         }
-        
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -105,7 +109,7 @@ public class ActivityMain extends Activity implements OnClickListener, Session.S
         @Override
         public void onDrawerOpened(View drawerView) {
             super.onDrawerOpened(drawerView);
-            getActionBar().setTitle(mTitle);
+            getActionBar().setTitle(mDrawerTitle);
             invalidateOptionsMenu();
         }
 
@@ -129,8 +133,25 @@ public class ActivityMain extends Activity implements OnClickListener, Session.S
     private void selectDrawerItem(int position) {
         mDrawerList.setItemChecked(position, true);
         mDrawerLayout.closeDrawers();
+        NavDrawer currentNavDrawerItem = mDrawerItems[position];
 
-        getActionBar().setTitle(mDrawerItems[position].getTitle());
+        switch (currentNavDrawerItem) {
+        
+        case PROFILE:
+            // Do nothing
+            break;
+            
+        case FIND_EVENT:
+            // Do nothing
+            break;
+            
+        case CREATE_EVENT:
+            // TODO: check for and prompt login if necessary
+            break;
+        
+        }
+        
+        setTitle(currentNavDrawerItem.getTitle());
     }
 
     @Override
