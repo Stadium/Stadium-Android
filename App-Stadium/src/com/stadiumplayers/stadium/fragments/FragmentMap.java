@@ -14,16 +14,14 @@ import com.stadiumplayers.stadium.R;
 
 public class FragmentMap extends Fragment {
 
-    private FrameLayout mFrameLayout;
-    private GoogleMap mMap;
+    private static final LatLng POSITION_E5_WATERLOO = new LatLng(43.4729791d, -80.5401027d);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_map, null, false);
 
-        LatLng position = new LatLng(43.4729791d, -80.5401027d);
-        Fragment fragment = FragmentMapModule.newInstance(position);
+        Fragment fragment = FragmentMapModule.newInstance(POSITION_E5_WATERLOO);
         getChildFragmentManager().beginTransaction()
                 .add(R.id.map_map_container, fragment, FragmentMapModule.class.getSimpleName())
                 .commit();

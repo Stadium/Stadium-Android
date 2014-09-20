@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.stadiumplayers.stadium"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:padding="@dimen/container_spacing" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.rperryng.roboto.RobotoTextView
+            android:id="@+id/event_detailed_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/ui_spacing_normal"
+            android:textSize="@dimen/text_title_large"
+            app:font="regular" />
+
+        <com.rperryng.roboto.RobotoTextView
+            android:id="@+id/event_detailed_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_title"
+            app:font="light" />
+
+        <com.rperryng.roboto.RobotoTextView
+            android:id="@+id/event_detailed_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/ui_spacing_normal"
+            android:textSize="@dimen/text_title"
+            app:font="light" />
+
+        <FrameLayout
+            android:id="@+id/event_detailed_map_container"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginBottom="@dimen/ui_spacing_small" />
+
+        <com.rperryng.roboto.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/ui_spacing_normal"
+            android:text="@string/event_detailed_friends_attending"
+            android:textSize="@dimen/text_title"
+            app:font="light" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <ListView
+                android:id="@+id/event_detailed_list_friends"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/ui_spacing_normal" />
+        </FrameLayout>
+
+        <com.rperryng.roboto.RobotoButton
+            android:id="@+id/event_detailed_btn_rsvp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tap to RSVP the event"
+            android:textSize="@dimen/text_title"
+            app:font="light" />
+    </LinearLayout>
+
+</ScrollView>

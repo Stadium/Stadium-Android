@@ -13,6 +13,7 @@ import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.stadiumplayers.stadium.R;
 
 public class FragmentMapModule extends SupportMapFragment {
 
@@ -32,12 +33,13 @@ public class FragmentMapModule extends SupportMapFragment {
        View rootView = super.onCreateView(inflater, container, savedInstanceState);
         
        UiSettings settings = getMap().getUiSettings();
-       settings.setAllGesturesEnabled(false);
+       settings.setAllGesturesEnabled(true);
        settings.setMyLocationButtonEnabled(true);
        
        LatLng position = (LatLng) getArguments().get(KEY_MAP_LAT_LNG);
        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(position, ZOOM_LEVEL);
        
+       getMap().setMyLocationEnabled(true);
        getMap().animateCamera(cameraUpdate);
        getMap().addMarker((new MarkerOptions()).position(position).icon(BitmapDescriptorFactory.defaultMarker()));
        

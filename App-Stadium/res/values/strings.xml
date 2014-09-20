@@ -21,6 +21,12 @@
     <string name="time_old">Can\'t use this time</string>
     <string name="departing">Departing:&#160;</string>
     <string name="arriving">Arriving:&#160;</string>
+    
+    <!-- Sport strings -->
+    <string name="sport_soccer">Soccer</string>
+    <string name="sport_football">Footbal</string>
+    <string name="sport_basketball">Basketball</string>
+    <string name="sport_tennis">Tennis</string>
 
     <!-- Friendly time language -->
     <string name="today">Today</string>
@@ -34,10 +40,15 @@
         <item quantity="one">Minute</item>
         <item quantity="other">Minutes</item>
     </plurals>
+    
+    <!-- Event detailed view -->
+    <string name="event_detailed_friends_attending">Friends Attending</string>
 
     <!-- Navigation Drawer -->
     <string name="nav_drawer_profile">Profile</string>
-    <string name="nav_drawer_find_event">Find a Game</string>
+    <string name="nav_drawer_search_games">Search for a game</string>
+    <string name="nav_drawer_near_me">Games near me</string>
+    <string name="nav_drawer_upcoming">Upcoming</string>
     <string name="nav_drawer_create_event">Create an event</string>
 
     <!-- login -->

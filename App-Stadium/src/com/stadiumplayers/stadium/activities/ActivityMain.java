@@ -18,18 +18,23 @@ import android.widget.Toast;
 
 import com.facebook.Session;
 import com.facebook.SessionState;
+import com.google.android.gms.maps.model.LatLng;
 import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.adapters.AdapterNavDrawer;
 import com.stadiumplayers.stadium.dialogs.DialogLogin.OnDialogLoginListener;
+import com.stadiumplayers.stadium.fragments.FragmentEventDetailed;
 import com.stadiumplayers.stadium.fragments.FragmentMain;
 import com.stadiumplayers.stadium.fragments.FragmentMap;
 import com.stadiumplayers.stadium.models.NavDrawer;
+import com.stadiumplayers.stadium.models.Sport;
 
 public class ActivityMain extends FragmentActivity implements OnClickListener,
         OnDialogLoginListener, Session.StatusCallback {
 
     private CharSequence mTitle;
     private CharSequence mDrawerTitle;
+    
+    private static final LatLng COLUMBIA_FIELD = new LatLng(43.47347701d, -80.55212259d);
 
     private NavDrawer[] mDrawerItems;
     private DrawerLayout mDrawerLayout;
@@ -145,16 +150,35 @@ public class ActivityMain extends FragmentActivity implements OnClickListener,
             // Do nothing
             break;
 
-        case FIND_EVENT:
-            Fragment fragment = new FragmentMap();
+        case SEARCH_GAMES:
+            // Do nothing
+            break;
+            
+        case NEAR_ME:
+            Fragment fragmentNearMe = new FragmentMap();
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.main_fragment_container, fragment,
+                    .replace(R.id.main_fragment_container, fragmentNearMe,
                             FragmentMap.class.getSimpleName()).commit();
             break;
-
+            
+        case UPCOMING:
+            String[] friendsAttending = {"Chris", "Meghan", "Kevin"};
+            Fragment fragmentEventDetailed = FragmentEventDetailed.newInstance("John",
+                    Sport.BASKETBALL, System.currentTimeMillis(), "Waterloo E5", COLUMBIA_FIELD,
+                    friendsAttending);
+            
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragment_container,
+                            fragmentEventDetailed, FragmentEventDetailed.class.getSimpleName())
+                    .commit();
+            
+            
         case CREATE_EVENT:
             // TODO: check for and prompt login if necessary
+            break;
+        default:
             break;
         }
 
