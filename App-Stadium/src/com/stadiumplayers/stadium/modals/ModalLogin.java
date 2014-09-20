@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -19,6 +18,7 @@ import com.facebook.SessionState;
 import com.facebook.model.GraphUser;
 import com.stadiumplayers.stadium.AppData;
 import com.stadiumplayers.stadium.R;
+import com.stadiumplayers.stadium.common.Utils;
 
 public class ModalLogin extends DialogFragment implements View.OnClickListener {
 
@@ -33,20 +33,18 @@ public class ModalLogin extends DialogFragment implements View.OnClickListener {
     }
 
     private TextView mTextMessage;
-    private Button mBtnFacebookLoginReal;
-    private Button mBtnFacebookLoginFake;
+    private Button mBtnFacebookLogin;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.modal_login, null, false);
 
         mTextMessage = (TextView) rootView.findViewById(R.id.login_text_message);
-        mBtnFacebookLoginFake = (Button) rootView.findViewById(R.id.login_btn_login_fake);
-        mBtnFacebookLoginReal = (Button) rootView.findViewById(R.id.login_btn_login_real);
+        mBtnFacebookLogin = (Button) rootView.findViewById(R.id.login_btn_login);
 
-        // mTextMessage.setText(String.format(Utils.getString(R.string.login_prompt_event),
-        // getArguments().getString(KEY_STRING_ACTION)));
-        mBtnFacebookLoginFake.setOnClickListener(this);
+        mTextMessage.setText(String.format(Utils.getString(R.string.login_prompt_event),
+                getArguments().getString(KEY_STRING_ACTION)));
+        mBtnFacebookLogin.setOnClickListener(this);
 
         return rootView;
     }
@@ -83,8 +81,6 @@ public class ModalLogin extends DialogFragment implements View.OnClickListener {
                                 // Save the user information
                                 AppData.init(Long.parseLong(user.getId()), user.getFirstName(),
                                         user.getLastName(), true);
-                                
-                                
                             }
                         }
                     });

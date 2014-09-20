@@ -14,13 +14,14 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethod.SessionCallback;
 import android.widget.Toast;
 
+import com.facebook.Session;
+import com.facebook.SessionState;
 import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.fragments.FragmentMain;
 
-public class ActivityMain extends Activity implements OnClickListener{
+public class ActivityMain extends Activity implements OnClickListener, Session.StatusCallback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,4 +66,10 @@ public class ActivityMain extends Activity implements OnClickListener{
         }
     }
 
+    @Override
+    public void call(Session session, SessionState state, Exception exception) {
+        if (session.isOpened()) {
+            
+        }
+    }
 }

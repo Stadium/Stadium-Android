@@ -32,11 +32,7 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
-        if (App.getContext() == null) {
-            Log.e("ryan", "omg its null");
-        }
-        
+    public void onClick(View v) {        
         DialogFragment modalLogin = ModalLogin.newInstance("create an event");
         modalLogin.show(getFragmentManager(), ModalLogin.class.getSimpleName());
     }

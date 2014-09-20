@@ -3,47 +3,42 @@
 <!-- Generated with http://android-holo-colors.com -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <style name="StadiumTheme" parent="@style/_StadiumTheme"/>
+    <style name="Theme.StadiumTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_stadiumtheme</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Stadiumtheme</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Stadiumtheme</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Stadiumtheme</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Stadiumtheme</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Stadiumtheme</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_stadiumtheme</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_stadiumtheme</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Stadiumtheme</item>
+        
+                <!-- Light.DarkActionBar specific -->
+        <item name="android:actionBarWidgetTheme">@style/Theme.Stadiumtheme.Widget</item>
+		
+		<!-- Ui widgets -->
+		<item name="android:editTextBackground">@drawable/stadiumtheme_edit_text_holo_light</item>
+        <item name="android:textColorHighlight">#9900bcd4</item>
+        <item name="android:textSelectHandleLeft">@drawable/stadiumtheme_text_select_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/stadiumtheme_text_select_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/stadiumtheme_text_select_handle_middle</item>
+        <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewStadiumTheme</item>
+        <item name="android:listChoiceIndicatorMultiple">@drawable/stadiumtheme_btn_check_holo_light</item>
+        <item name="android:listChoiceIndicatorSingle">@drawable/stadiumtheme_btn_radio_holo_light</item>
+        <item name="android:buttonStyle">@style/ButtonStadiumTheme</item>
+        <item name="android:imageButtonStyle">@style/ImageButtonStadiumTheme</item>
+        <item name="android:dropDownSpinnerStyle">@style/SpinnerStadiumTheme</item>
+        <item name="android:progressBarStyleHorizontal">@style/ProgressBarStadiumTheme</item>
+        <item name="android:seekBarStyle">@style/SeekBarStadiumTheme</item>
+        <item name="android:ratingBarStyle">@style/RatingBarStadiumTheme</item>
+        <item name="android:ratingBarStyleIndicator">@style/RatingBarBigStadiumTheme</item>
+        <item name="android:ratingBarStyleSmall">@style/RatingBarSmallStadiumTheme</item>
+        <item name="android:buttonStyleToggle">@style/ToggleStadiumTheme</item>
+        <item name="android:listChoiceBackgroundIndicator">@drawable/stadiumtheme_list_selector_holo_light</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/stadiumtheme_activated_background_holo_light</item>
+        <item name="android:fastScrollThumbDrawable">@drawable/stadiumtheme_fastscroll_thumb_holo</item>
 
-  <style name="_StadiumTheme" parent="android:Theme.Holo.Light">
-
-    <item name="android:editTextBackground">@drawable/stadiumtheme_edit_text_holo_light</item>
-
-    <item name="android:textColorHighlight">#9900bcd4</item>
-    <item name="android:textSelectHandleLeft">@drawable/stadiumtheme_text_select_handle_left</item>
-    <item name="android:textSelectHandleRight">@drawable/stadiumtheme_text_select_handle_right</item>
-    <item name="android:textSelectHandle">@drawable/stadiumtheme_text_select_handle_middle</item>
-
-    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewStadiumTheme</item>
-
-    <item name="android:listChoiceIndicatorMultiple">@drawable/stadiumtheme_btn_check_holo_light</item>
-
-    <item name="android:listChoiceIndicatorSingle">@drawable/stadiumtheme_btn_radio_holo_light</item>
-
-    <item name="android:buttonStyle">@style/ButtonStadiumTheme</item>
-
-    <item name="android:imageButtonStyle">@style/ImageButtonStadiumTheme</item>
-
-    <item name="android:dropDownSpinnerStyle">@style/SpinnerStadiumTheme</item>
-
-    <item name="android:progressBarStyleHorizontal">@style/ProgressBarStadiumTheme</item>
-
-    <item name="android:seekBarStyle">@style/SeekBarStadiumTheme</item>
-
-    <item name="android:ratingBarStyle">@style/RatingBarStadiumTheme</item>
-
-    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigStadiumTheme</item>
-
-    <item name="android:ratingBarStyleSmall">@style/RatingBarSmallStadiumTheme</item>
-
-    <item name="android:buttonStyleToggle">@style/ToggleStadiumTheme</item>
-
-    <item name="android:listChoiceBackgroundIndicator">@drawable/stadiumtheme_list_selector_holo_light</item>
-
-    <item name="android:activatedBackgroundIndicator">@drawable/stadiumtheme_activated_background_holo_light</item>
-
-    <item name="android:fastScrollThumbDrawable">@drawable/stadiumtheme_fastscroll_thumb_holo</item>
-
-  </style>
+    </style>
 
 </resources>
