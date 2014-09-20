@@ -3,38 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res/com.stadiumplayers.stadium"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="@dimen/container_spacing_large" >
 
     <com.rperryng.roboto.RobotoTextView
         android:id="@+id/login_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Hello"
-        app:font="light" />
+        android:layout_marginBottom="@dimen/ui_spacing_normal"
+        android:gravity="left"
+        android:text="This&apos;ll take a sec"
+        app:font="regularBold" />
 
     <com.rperryng.roboto.RobotoTextView
         android:id="@+id/login_text_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/ui_spacing_larger"
+        android:gravity="left"
         android:text="Before you can %s you&apos;ll have to login"
-        app:font="light" />
+        app:font="regular" />
 
-    <com.rperryng.roboto.RobotoButton
-        android:id="@+id/login_btn_login_fake"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:text="Login with Facebook"
-        app:font="condensedRegular" />
+        android:orientation="horizontal" >
 
-    <com.rperryng.roboto.RobotoButton
-        android:id="@+id/login_btn_cancel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:text="Keep browsing"
-        app:font="condensedRegular" />
+        <com.rperryng.roboto.RobotoButton
+            android:id="@+id/login_btn_login_fake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Login with Facebook"
+            app:font="regular" />
+
+        <com.rperryng.roboto.RobotoButton
+            android:id="@+id/login_btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Keep browsing"
+            app:font="regular" />
+
+        <com.facebook.widget.LoginButton
+            android:id="@+id/login_btn_login_real"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
+    </LinearLayout>
 
 </LinearLayout>

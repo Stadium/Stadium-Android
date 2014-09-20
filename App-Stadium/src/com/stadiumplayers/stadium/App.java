@@ -4,46 +4,43 @@ import java.text.SimpleDateFormat;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.stadiumplayers.stadium.common.Utils;
 import com.stadiumplayers.stadium.volley.MyVolley;
 
 public class App extends Application {
 
-    private static App mApp = null;
-    private static SimpleDateFormat mDateFormat;
-    private static SimpleDateFormat mDateFormatVerbose;
-    private static SimpleDateFormat mTimeFormat;
+    private static App sApp;
+    private static SimpleDateFormat sDateFormat;
+    private static SimpleDateFormat sDateFormatVerbose;
+    private static SimpleDateFormat sTimeFormat;
 
     @Override
     public void onCreate() {
         super.onCreate();
         
-        mApp = this;
+        sApp = this;
         MyVolley.init(this);
-        mDateFormat = new SimpleDateFormat(Utils.detectDateFormat(false));
-        mDateFormatVerbose = new SimpleDateFormat(Utils.detectDateFormat(true));
-        mTimeFormat = new SimpleDateFormat(Utils.detectTimeFormat());
+        sDateFormat = new SimpleDateFormat(Utils.detectDateFormat(false));
+        sDateFormatVerbose = new SimpleDateFormat(Utils.detectDateFormat(true));
+        sTimeFormat = new SimpleDateFormat(Utils.detectTimeFormat());
     }
     
-    public static Context getContent() {
-        return mApp;
-    }
-    
-    public static Context getAppContext() {
-        return mApp;
+    public static Context getContext() {
+        return sApp;
     }
     
     public static SimpleDateFormat getDateFormat() {
-        return mDateFormat;
+        return sDateFormat;
     }
 
     public static SimpleDateFormat getDateFormatVerbose() {
-        return mDateFormatVerbose;
+        return sDateFormatVerbose;
     }
 
     public static SimpleDateFormat getTimeFormat() {
-        return mTimeFormat;
+        return sTimeFormat;
     }
 
 }

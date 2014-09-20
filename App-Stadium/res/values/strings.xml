@@ -4,7 +4,7 @@
     <!-- Application level -->
     <string name="app_name">Stadium</string>
     <string name="action_settings">Settings</string>
-    
+
     <!-- Facebook level -->
     <string name="facebook_app_id">740878865980424</string>
 
@@ -22,7 +22,7 @@
     <string name="time_old">Can\'t use this time</string>
     <string name="departing">Departing:&#160;</string>
     <string name="arriving">Arriving:&#160;</string>
-    
+
     <!-- Friendly time language -->
     <string name="today">Today</string>
     <string name="tomorrow">Tomorrow</string>
@@ -37,6 +37,10 @@
     </plurals>
 
     <!-- main -->
+
+
+    <!-- login -->
+    <string name="login_prompt_event">Before you can %s you\'ll have to login</string>
     <string name="login">login</string>
 
 </resources>

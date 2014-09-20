@@ -5,11 +5,11 @@
 
   <style name="StadiumTheme" parent="@style/_StadiumTheme"/>
 
-  <style name="_StadiumTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+  <style name="_StadiumTheme" parent="android:Theme.Holo.Light">
 
     <item name="android:editTextBackground">@drawable/stadiumtheme_edit_text_holo_light</item>
 
-    <item name="android:textColorHighlight">#99cc0000</item>
+    <item name="android:textColorHighlight">#9900bcd4</item>
     <item name="android:textSelectHandleLeft">@drawable/stadiumtheme_text_select_handle_left</item>
     <item name="android:textSelectHandleRight">@drawable/stadiumtheme_text_select_handle_right</item>
     <item name="android:textSelectHandle">@drawable/stadiumtheme_text_select_handle_middle</item>

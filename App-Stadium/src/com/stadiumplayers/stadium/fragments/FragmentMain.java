@@ -1,14 +1,18 @@
 package com.stadiumplayers.stadium.fragments;
 
-import com.stadiumplayers.stadium.R;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.stadiumplayers.stadium.App;
+import com.stadiumplayers.stadium.R;
+import com.stadiumplayers.stadium.modals.ModalLogin;
 
 public class FragmentMain extends Fragment implements View.OnClickListener {
     
@@ -29,7 +33,12 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(getActivity(), R.string.hello_world, Toast.LENGTH_SHORT).show();
+        if (App.getContext() == null) {
+            Log.e("ryan", "omg its null");
+        }
+        
+        DialogFragment modalLogin = ModalLogin.newInstance("create an event");
+        modalLogin.show(getFragmentManager(), ModalLogin.class.getSimpleName());
     }
     
 }

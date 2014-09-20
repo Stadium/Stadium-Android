@@ -8,7 +8,6 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
 
-import com.stadiumplayers.stadium.R;
 import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -16,6 +15,7 @@ import android.text.format.DateFormat;
 import android.text.format.Time;
 
 import com.stadiumplayers.stadium.App;
+import com.stadiumplayers.stadium.R;
 
 public class Utils {
 
@@ -29,7 +29,7 @@ public class Utils {
      *         text information.
      */
     public static String getQuantityString(int quantityStringId, int quantity) {
-        return App.getAppContext().getResources().getQuantityString(quantityStringId, quantity);
+        return App.getContext().getResources().getQuantityString(quantityStringId, quantity);
     }
 
     /**
@@ -37,7 +37,7 @@ public class Utils {
      * @return The string array associated with the resource.
      */
     public static String[] getStringArray(int stringArrayId) {
-        return App.getAppContext().getResources().getStringArray(stringArrayId);
+        return App.getContext().getResources().getStringArray(stringArrayId);
     }
 
     /**
@@ -46,7 +46,7 @@ public class Utils {
      *         text information.
      */
     public static String getString(int stringId) {
-        return App.getAppContext().getResources().getString(stringId);
+        return App.getContext().getResources().getString(stringId);
     }
 
     /**
@@ -54,7 +54,7 @@ public class Utils {
      * @return Returns a single color value in the form 0xAARRGGBB.
      */
     public static int getColor(int colorId) {
-        return App.getAppContext().getResources().getColor(colorId);
+        return App.getContext().getResources().getColor(colorId);
     }
 
     /**
@@ -64,7 +64,7 @@ public class Utils {
      */
     @SuppressLint("Recycle")
     public static TypedArray obtainTypedArray(int typedArrayId) {
-        return App.getAppContext().getResources().obtainTypedArray(typedArrayId);
+        return App.getContext().getResources().obtainTypedArray(typedArrayId);
     }
 
     /**
@@ -72,7 +72,7 @@ public class Utils {
      * @return An object that can be used to draw this resource
      */
     public static Drawable getDrawable(int drawableId) {
-        return App.getAppContext().getResources().getDrawable(drawableId);
+        return App.getContext().getResources().getDrawable(drawableId);
     }
 
     /**
@@ -87,7 +87,7 @@ public class Utils {
         testDate.set(Calendar.MONTH, Calendar.DECEMBER);
         testDate.set(Calendar.DAY_OF_MONTH, 25);
 
-        Format format = android.text.format.DateFormat.getDateFormat(App.getAppContext());
+        Format format = android.text.format.DateFormat.getDateFormat(App.getContext());
         String testDateFormat = format.format(testDate.getTime());
         String[] parts = testDateFormat.split("/");
         StringBuilder stringBuilder = new StringBuilder();
@@ -113,7 +113,7 @@ public class Utils {
      * @return String String representing the time format as a SimpleDateFormat
      */
     public static String detectTimeFormat() {
-        return DateFormat.is24HourFormat(App.getAppContext()) ? "HH:mm" : "h:mm a";
+        return DateFormat.is24HourFormat(App.getContext()) ? "HH:mm" : "h:mm a";
     }
     
     /**
@@ -121,7 +121,7 @@ public class Utils {
      *         Clock settings)
      */
     public static boolean is24Hour() {
-        return DateFormat.is24HourFormat(App.getAppContext());
+        return DateFormat.is24HourFormat(App.getContext());
     }
 
     /**
