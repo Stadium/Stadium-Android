@@ -1,0 +1,8 @@
+<com.rperryng.roboto.RobotoButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.stadiumplayers.stadium"
+    android:id="@+id/event_detailed_btn_rsvp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Tap to RSVP the event"
+    android:textSize="@dimen/text_title"
+    app:font="light" />

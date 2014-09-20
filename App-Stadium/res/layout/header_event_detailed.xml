@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res/com.stadiumplayers.stadium">
+
+    <com.rperryng.roboto.RobotoTextView
+        android:id="@+id/event_detailed_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/ui_spacing_normal"
+        android:textSize="@dimen/text_title_large"
+        app:font="regular" />
+
+    <com.rperryng.roboto.RobotoTextView
+        android:id="@+id/event_detailed_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_title"
+        app:font="light" />
+
+    <com.rperryng.roboto.RobotoTextView
+        android:id="@+id/event_detailed_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/ui_spacing_normal"
+        android:textSize="@dimen/text_title"
+        app:font="light" />
+
+    <FrameLayout
+        android:id="@+id/event_detailed_map_container"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginBottom="@dimen/ui_spacing_small" />
+
+    <com.rperryng.roboto.RobotoTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/ui_spacing_normal"
+        android:text="@string/event_detailed_friends_attending"
+        android:textSize="@dimen/text_title"
+        app:font="light" />
+
+</LinearLayout>

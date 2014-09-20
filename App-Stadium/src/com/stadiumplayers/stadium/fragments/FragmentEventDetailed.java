@@ -61,12 +61,17 @@ public class FragmentEventDetailed extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         
         View rootView = inflater.inflate(R.layout.fragment_event_detailed, null, false);
+        View headerView = inflater.inflate(R.layout.header_event_detailed, null, false);
+        View footerView = inflater.inflate(R.layout.footer_event_detailed, null, false);
         
-        mTextTitle = (TextView) rootView.findViewById(R.id.event_detailed_title);
-        mTextDate = (TextView) rootView.findViewById(R.id.event_detailed_date);
-        mTextLocation = (TextView) rootView.findViewById(R.id.event_detailed_location);
-        mListFriendsAttending = (ListView) rootView.findViewById(R.id.event_detailed_list_friends);
-        mBtnRsvp = (Button) rootView.findViewById(R.id.event_detailed_btn_rsvp);
+        mListFriendsAttending = (ListView) rootView.findViewById(R.id.event_detailed_list);
+        mListFriendsAttending.addHeaderView(headerView);
+        mListFriendsAttending.addFooterView(footerView);
+        
+        mTextTitle = (TextView) headerView.findViewById(R.id.event_detailed_title);
+        mTextDate = (TextView) headerView.findViewById(R.id.event_detailed_date);
+        mTextLocation = (TextView) headerView.findViewById(R.id.event_detailed_location);
+        mBtnRsvp = (Button) footerView.findViewById(R.id.event_detailed_btn_rsvp);
 
         Bundle args = getArguments();
         
@@ -98,7 +103,6 @@ public class FragmentEventDetailed extends Fragment implements View.OnClickListe
         AdapterFriendsAttending adapter = new AdapterFriendsAttending(getActivity(), names);
         mListFriendsAttending.setAdapter(adapter);
         
-        // listen for when the user clicks on the rsvp button
         mBtnRsvp.setOnClickListener(this);
         
         return rootView;
