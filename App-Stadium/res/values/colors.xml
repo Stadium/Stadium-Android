@@ -3,4 +3,5 @@
     <color name="stadiumtheme_color">#00bcd4</color>
     <color name="btn_pressed">#0097a7</color>
     <color name="shadow">#DEDEDE</color>
+    <color name="text_subtle">#707070</color>
 </resources>

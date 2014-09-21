@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import android.annotation.SuppressLint;
@@ -23,6 +24,9 @@ import android.text.format.Time;
 import android.util.Base64;
 import android.util.Log;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.stadiumplayers.stadium.App;
 import com.stadiumplayers.stadium.R;
 
@@ -140,7 +144,7 @@ public class Utils {
      * @return The appropriate formatted date as a string
      */
     @SuppressLint("SimpleDateFormat")
-    public static String multiCaseDateFormat(long epochTime) {
+    public static String getFriendlyDateFor(long epochTime) {
         boolean verboseTimeStampNeeded = true;
         Time currentTime = new Time();
         Time eventTime = new Time();

@@ -7,21 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
-import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.stadiumplayers.stadium.R;
+import com.stadiumplayers.stadium.common.Constants;
 
 public class FragmentMap extends Fragment {
-
-    private static final LatLng POSITION_E5_WATERLOO = new LatLng(43.4729791d, -80.5401027d);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_map, null, false);
 
-        Fragment fragment = FragmentMapModule.newInstance(POSITION_E5_WATERLOO);
+        Fragment fragment = FragmentMapModule.newInstance(Constants.POSITION_E5_WATERLOO);
         getChildFragmentManager().beginTransaction()
                 .add(R.id.map_map_container, fragment, FragmentMapModule.class.getSimpleName())
                 .commit();

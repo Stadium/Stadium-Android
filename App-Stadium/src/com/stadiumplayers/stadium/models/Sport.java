@@ -10,10 +10,10 @@ import com.stadiumplayers.stadium.common.Utils;
 
 public enum Sport implements Parcelable {
 
-    SOOCER(R.string.sport_soccer, R.drawable.ic_launcher),
-    FOOTBALL(R.string.sport_football, R.drawable.ic_launcher),
-    TENNIS(R.string.sport_tennis, R.drawable.ic_launcher),
-    BASKETBALL(R.string.sport_basketball, R.drawable.ic_launcher);
+    SOOCER(R.string.sport_soccer, R.drawable.pin_soccer),
+    FOOTBALL(R.string.sport_football, R.drawable.pin_football),
+    TENNIS(R.string.sport_tennis, R.drawable.pin_tennis),
+    BASKETBALL(R.string.sport_basketball, R.drawable.pin_basketball);
 
     private String mName;
     private int mIconId;
@@ -26,6 +26,10 @@ public enum Sport implements Parcelable {
     
     public String getName() {
         return mName;
+    }
+    
+    public int getIconId() {
+        return mIconId;
     }
     
     public Drawable getIcon() {

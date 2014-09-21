@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/container_spacing" >
+    android:layout_height="match_parent" >
 
     <ListView
         android:id="@+id/event_detailed_list"
@@ -11,6 +10,7 @@
         android:clipToPadding="false"
         android:divider="@android:color/transparent"
         android:dividerHeight="@dimen/ui_spacing_normal"
+        android:padding="@dimen/container_spacing"
         android:scrollbarStyle="outsideOverlay" />
 
 </FrameLayout>

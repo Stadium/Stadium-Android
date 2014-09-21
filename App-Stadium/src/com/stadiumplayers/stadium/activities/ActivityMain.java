@@ -1,12 +1,15 @@
 
 package com.stadiumplayers.stadium.activities;
 
+import java.util.List;
+
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,19 +24,23 @@ import com.facebook.SessionState;
 import com.google.android.gms.maps.model.LatLng;
 import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.adapters.AdapterNavDrawer;
+import com.stadiumplayers.stadium.common.Constants;
 import com.stadiumplayers.stadium.dialogs.DialogLogin.OnDialogLoginListener;
 import com.stadiumplayers.stadium.fragments.FragmentEventDetailed;
 import com.stadiumplayers.stadium.fragments.FragmentMain;
 import com.stadiumplayers.stadium.fragments.FragmentMap;
+import com.stadiumplayers.stadium.fragments.FragmentMapModule;
+import com.stadiumplayers.stadium.fragments.FragmentSearchResults;
 import com.stadiumplayers.stadium.models.NavDrawer;
 import com.stadiumplayers.stadium.models.Sport;
+import com.stadiumplayers.stadium.models.SportGame;
 
 public class ActivityMain extends FragmentActivity implements OnClickListener,
         OnDialogLoginListener, Session.StatusCallback {
 
     private CharSequence mTitle;
     private CharSequence mDrawerTitle;
-    
+
     private static final LatLng COLUMBIA_FIELD = new LatLng(43.47347701d, -80.55212259d);
 
     private NavDrawer[] mDrawerItems;
@@ -153,28 +160,34 @@ public class ActivityMain extends FragmentActivity implements OnClickListener,
         case SEARCH_GAMES:
             // Do nothing
             break;
-            
+
         case NEAR_ME:
-            Fragment fragmentNearMe = new FragmentMap();
+            Fragment fragmentNearMe = FragmentMapModule.newInstance(Constants.POSITION_E5_WATERLOO);
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.main_fragment_container, fragmentNearMe,
                             FragmentMap.class.getSimpleName()).commit();
             break;
-            
-        case UPCOMING:
+
+        case SUGGESTED:
             String[] friendsAttending = {"Chris", "Meghan", "Kevin"};
             Fragment fragmentEventDetailed = FragmentEventDetailed.newInstance("John",
                     Sport.BASKETBALL, System.currentTimeMillis(), "Waterloo E5", COLUMBIA_FIELD,
                     friendsAttending);
-            
+
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.main_fragment_container,
-                            fragmentEventDetailed, FragmentEventDetailed.class.getSimpleName())
-                    .commit();
-            
-            
+                    .replace(R.id.main_fragment_container, fragmentEventDetailed,
+                            FragmentEventDetailed.class.getSimpleName()).commit();
+            break;
+
+        case UPCOMING:
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragment_container, new FragmentSearchResults(),
+                            FragmentSearchResults.class.getSimpleName()).commit();
+            break;
+
         case CREATE_EVENT:
             // TODO: check for and prompt login if necessary
             break;

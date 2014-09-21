@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.stadiumplayers.stadium"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/ui_spacing_normal"
+    android:paddingBottom="@dimen/ui_spacing_normal"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:orientation="vertical" >
+
+        <com.rperryng.roboto.RobotoTextView
+            android:id="@+id/item_search_result_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_title"
+            app:font="regularBold" />
+
+        <com.rperryng.roboto.RobotoTextView
+            android:id="@+id/item_search_result_text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_subtle"
+            app:font="light" />
+
+        <com.rperryng.roboto.RobotoTextView
+            android:id="@+id/item_search_result_text_participants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_subtle"
+            app:font="light" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="vertical" >
+
+        <com.rperryng.roboto.RobotoTextView
+            android:id="@+id/item_search_result_text_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:font="light" />
+
+        <com.rperryng.roboto.RobotoTextView
+            android:id="@+id/item_search_result_text_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_subtle"
+            app:font="light" />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_action_next_item" />
+
+</LinearLayout>

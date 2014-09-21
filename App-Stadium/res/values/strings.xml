@@ -48,6 +48,7 @@
     <string name="nav_drawer_profile">Profile</string>
     <string name="nav_drawer_search_games">Search for a game</string>
     <string name="nav_drawer_near_me">Games near me</string>
+    <string name="nav_drawer_suggested">Suggested</string>
     <string name="nav_drawer_upcoming">Upcoming</string>
     <string name="nav_drawer_create_event">Create an event</string>
 

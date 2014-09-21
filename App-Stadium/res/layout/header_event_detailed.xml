@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.stadiumplayers.stadium"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res/com.stadiumplayers.stadium">
+    android:orientation="vertical" >
 
     <com.rperryng.roboto.RobotoTextView
         android:id="@+id/event_detailed_title"
@@ -27,11 +28,12 @@
         android:textSize="@dimen/text_title"
         app:font="light" />
 
-    <FrameLayout
+     <FrameLayout
         android:id="@+id/event_detailed_map_container"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:layout_marginBottom="@dimen/ui_spacing_small" />
+        android:layout_marginBottom="@dimen/ui_spacing_small" >
+    </FrameLayout>
 
     <com.rperryng.roboto.RobotoTextView
         android:layout_width="wrap_content"
