@@ -4,8 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/container_spacing"
-    android:paddingRight="@dimen/container_spacing"
     android:paddingTop="@dimen/container_spacing" >
 
     <com.rperryng.roboto.RobotoTextView
@@ -13,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/ui_spacing_normal"
+        android:padding="@dimen/container_spacing"
         android:textSize="@dimen/text_title"
         app:font="regularBold" />
 
@@ -21,8 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
-        android:scrollbarStyle="outsideOverlay"
-        android:paddingBottom="@dimen/container_spacing"
-        android:paddingTop="@dimen/container_spacing" />
+        android:padding="@dimen/container_spacing"
+        android:scrollbarStyle="outsideOverlay" />
 
 </LinearLayout>
