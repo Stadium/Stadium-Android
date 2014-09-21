@@ -9,6 +9,12 @@
     <dimen name="ui_spacing_large">16dp</dimen>
     <dimen name="ui_spacing_larger">32dp</dimen>
     <dimen name="ui_spacing_touchable">48dp</dimen>
+    <dimen name="ui_spacing_gigantic">36dp</dimen>
+    
+    <!-- various -->
+    <dimen name="little_icon_size">20dp</dimen>
+    <dimen name="sport_tile_width">92dp</dimen>
+    <dimen name="sport_tile_height">96dp</dimen>
     
     <!-- Font sizing -->
     <dimen name="text_title_large">24sp</dimen>

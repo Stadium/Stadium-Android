@@ -16,17 +16,12 @@
         android:textSize="@dimen/text_title"
         app:font="regularBold" />
 
-    <com.rperryng.roboto.RobotoButton
-        android:id="@+id/results_list_btn_filter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Filter settings" />
-
     <ListView
         android:id="@+id/result_list_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
+        android:scrollbarStyle="outsideOverlay"
         android:paddingBottom="@dimen/container_spacing"
         android:paddingTop="@dimen/container_spacing" />
 

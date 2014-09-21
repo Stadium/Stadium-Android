@@ -5,10 +5,14 @@ import java.util.List;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.adapters.AdapterSearchResult;
@@ -17,6 +21,12 @@ import com.stadiumplayers.stadium.models.SportGame;
 public class FragmentSearchResults extends Fragment {
     
     private List<SportGame> sportGames;
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,6 +42,24 @@ public class FragmentSearchResults extends Fragment {
         list.setAdapter(adapter);
         
         return rootView;
+    }
+    
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.search_result_actions, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        
+        switch (item.getItemId()) {
+        case R.id.action_result_filter:
+            Toast.makeText(getActivity(), "Testing!", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        
+        return super.onOptionsItemSelected(item);
     }
 
 }

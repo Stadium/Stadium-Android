@@ -1,15 +1,12 @@
 
 package com.stadiumplayers.stadium.activities;
 
-import java.util.List;
-
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,8 +16,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.facebook.Session;
-import com.facebook.SessionState;
 import com.google.android.gms.maps.model.LatLng;
 import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.adapters.AdapterNavDrawer;
@@ -30,18 +25,16 @@ import com.stadiumplayers.stadium.fragments.FragmentEventDetailed;
 import com.stadiumplayers.stadium.fragments.FragmentMain;
 import com.stadiumplayers.stadium.fragments.FragmentMap;
 import com.stadiumplayers.stadium.fragments.FragmentMapModule;
+import com.stadiumplayers.stadium.fragments.FragmentSearch;
 import com.stadiumplayers.stadium.fragments.FragmentSearchResults;
 import com.stadiumplayers.stadium.models.NavDrawer;
 import com.stadiumplayers.stadium.models.Sport;
-import com.stadiumplayers.stadium.models.SportGame;
 
 public class ActivityMain extends FragmentActivity implements OnClickListener,
-        OnDialogLoginListener, Session.StatusCallback {
+        OnDialogLoginListener {
 
     private CharSequence mTitle;
     private CharSequence mDrawerTitle;
-
-    private static final LatLng COLUMBIA_FIELD = new LatLng(43.47347701d, -80.55212259d);
 
     private NavDrawer[] mDrawerItems;
     private DrawerLayout mDrawerLayout;
@@ -158,7 +151,8 @@ public class ActivityMain extends FragmentActivity implements OnClickListener,
             break;
 
         case SEARCH_GAMES:
-            // Do nothing
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_fragment_container, new FragmentSearch()).commit();
             break;
 
         case NEAR_ME:
@@ -172,7 +166,7 @@ public class ActivityMain extends FragmentActivity implements OnClickListener,
         case SUGGESTED:
             String[] friendsAttending = {"Chris", "Meghan", "Kevin"};
             Fragment fragmentEventDetailed = FragmentEventDetailed.newInstance("John",
-                    Sport.BASKETBALL, System.currentTimeMillis(), "Waterloo E5", COLUMBIA_FIELD,
+                    Sport.BASKETBALL, System.currentTimeMillis(), "Waterloo E5", Constants.POSITION_COLUMBIA_FIELD,
                     friendsAttending);
 
             getSupportFragmentManager()
@@ -201,13 +195,6 @@ public class ActivityMain extends FragmentActivity implements OnClickListener,
     @Override
     public void onClick(View view) {
         Toast.makeText(ActivityMain.this, R.string.hello_world, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void call(Session session, SessionState state, Exception exception) {
-        if (session.isOpened()) {
-
-        }
     }
 
     @Override

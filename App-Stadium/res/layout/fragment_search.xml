@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.stadiumplayers.stadium"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:padding="@dimen/container_spacing" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/ui_spacing_large" >
+
+            <ImageView
+                android:layout_width="@dimen/little_icon_size"
+                android:layout_height="@dimen/little_icon_size"
+                android:src="@drawable/ic_location_pin" />
+
+            <com.rperryng.roboto.RobotoTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Current Location: " />
+
+            <com.rperryng.roboto.RobotoTextView
+                android:id="@+id/search_text_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                app:font="medium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/ui_spacing_large"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="@dimen/little_icon_size"
+                android:layout_height="@dimen/little_icon_size"
+                android:src="@drawable/ic_trophy" />
+
+            <com.rperryng.roboto.RobotoTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Select the sport you would like to play" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="26dp"
+            android:layout_marginLeft="@dimen/ui_spacing_larger"
+            android:layout_marginRight="@dimen/ui_spacing_larger"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+
+                <RelativeLayout
+                    android:layout_width="@dimen/sport_tile_width"
+                    android:layout_height="@dimen/sport_tile_height"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/background_sport_tile_selector" >
+
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/sport_soccer" />
+
+                    <com.rperryng.roboto.RobotoTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Soccer" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+
+                <RelativeLayout
+                    android:layout_width="@dimen/sport_tile_width"
+                    android:layout_height="@dimen/sport_tile_height"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/background_sport_tile_normal" >
+
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/sport_basketball" />
+
+                    <com.rperryng.roboto.RobotoTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Basketball" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/ui_spacing_large"
+            android:layout_marginLeft="@dimen/ui_spacing_larger"
+            android:layout_marginRight="@dimen/ui_spacing_larger"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+
+                <RelativeLayout
+                    android:layout_width="@dimen/sport_tile_width"
+                    android:layout_height="@dimen/sport_tile_height"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/background_sport_tile_normal" >
+
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/sport_football" />
+
+                    <com.rperryng.roboto.RobotoTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Football" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+
+                <RelativeLayout
+                    android:layout_width="@dimen/sport_tile_width"
+                    android:layout_height="@dimen/sport_tile_height"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/background_sport_tile_normal" >
+
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/sport_basketball" />
+
+                    <com.rperryng.roboto.RobotoTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Tennis" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/ui_spacing_large"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="@dimen/little_icon_size"
+                android:layout_height="@dimen/little_icon_size"
+                android:src="@drawable/ic_location_target" />
+
+            <com.rperryng.roboto.RobotoTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search for games within a radius of" />
+        </LinearLayout>
+
+        <com.rperryng.roboto.RobotoEditText
+            android:id="@+id/search_edit_radius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/ui_spacing_larger"
+            android:inputType="number" />
+
+        <com.rperryng.roboto.RobotoButton
+            android:id="@+id/search_btn_find_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Find me a game!"
+            app:font="regular" />
+    </LinearLayout>
+
+</ScrollView>
