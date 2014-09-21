@@ -2,6 +2,7 @@ package com.stadiumplayers.stadium.fragments;
 
 import java.util.List;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,9 +21,21 @@ import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.adapters.AdapterSearchResult;
 import com.stadiumplayers.stadium.models.SportGame;
 
-public class FragmentSearchResults extends Fragment {
+public class FragmentSearchResults extends Fragment implements OnItemClickListener {
     
+    public interface OnSearchResultClickedListener {
+        public void onSearchResultClicked(SportGame sportGame);
+    }
+    
+    private OnSearchResultClickedListener mListener;
+
     private List<SportGame> sportGames;
+    
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mListener = (OnSearchResultClickedListener) activity;
+    }
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +55,7 @@ public class FragmentSearchResults extends Fragment {
         ListView list = (ListView) rootView.findViewById(R.id.result_list_list);
         AdapterSearchResult adapter = new AdapterSearchResult(getActivity(), sportGames);
         list.setAdapter(adapter);
+        list.setOnItemClickListener(this);
         
         return rootView;
     }
@@ -62,4 +78,9 @@ public class FragmentSearchResults extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        mListener.onSearchResultClicked(sportGames.get(position));
+    }
+    
 }

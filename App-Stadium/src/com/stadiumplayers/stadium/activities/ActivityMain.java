@@ -7,6 +7,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +17,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.model.LatLng;
 import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.adapters.AdapterNavDrawer;
 import com.stadiumplayers.stadium.common.Constants;
@@ -26,12 +26,15 @@ import com.stadiumplayers.stadium.fragments.FragmentMain;
 import com.stadiumplayers.stadium.fragments.FragmentMap;
 import com.stadiumplayers.stadium.fragments.FragmentMapModule;
 import com.stadiumplayers.stadium.fragments.FragmentSearch;
+import com.stadiumplayers.stadium.fragments.FragmentSearch.OnSearchButtonClickedListener;
 import com.stadiumplayers.stadium.fragments.FragmentSearchResults;
+import com.stadiumplayers.stadium.fragments.FragmentSearchResults.OnSearchResultClickedListener;
 import com.stadiumplayers.stadium.models.NavDrawer;
 import com.stadiumplayers.stadium.models.Sport;
+import com.stadiumplayers.stadium.models.SportGame;
 
 public class ActivityMain extends FragmentActivity implements OnClickListener,
-        OnDialogLoginListener {
+        OnDialogLoginListener, OnSearchButtonClickedListener, OnSearchResultClickedListener {
 
     private CharSequence mTitle;
     private CharSequence mDrawerTitle;
@@ -164,10 +167,8 @@ public class ActivityMain extends FragmentActivity implements OnClickListener,
             break;
 
         case SUGGESTED:
-            String[] friendsAttending = {"Chris", "Meghan", "Kevin"};
-            Fragment fragmentEventDetailed = FragmentEventDetailed.newInstance("John",
-                    Sport.BASKETBALL, System.currentTimeMillis(), "Waterloo E5", Constants.POSITION_COLUMBIA_FIELD,
-                    friendsAttending);
+            Fragment fragmentEventDetailed = FragmentEventDetailed.newInstance(SportGame
+                    .getGenerated().get(0));
 
             getSupportFragmentManager()
                     .beginTransaction()
@@ -195,6 +196,25 @@ public class ActivityMain extends FragmentActivity implements OnClickListener,
     @Override
     public void onClick(View view) {
         Toast.makeText(ActivityMain.this, R.string.hello_world, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSearchButtonClicked() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_fragment_container, new FragmentSearchResults(),
+                        FragmentSearchResults.class.getSimpleName()).addToBackStack(null).commit();
+    }
+
+    @Override
+    public void onSearchResultClicked(SportGame sportGame) {
+
+        Fragment fragment = FragmentEventDetailed.newInstance(sportGame);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_fragment_container, fragment,
+                        FragmentEventDetailed.class.getSimpleName()).addToBackStack(null).commit();
+
     }
 
     @Override

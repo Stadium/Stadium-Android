@@ -22,34 +22,24 @@ import com.google.android.gms.maps.model.LatLng;
 import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.adapters.AdapterFriendsAttending;
 import com.stadiumplayers.stadium.models.Sport;
+import com.stadiumplayers.stadium.models.SportGame;
 
 public class FragmentEventDetailed extends Fragment implements View.OnClickListener {
 
-    private static final String KEY_EVENT_HOST_NAME = "keyEventHostName";
-    private static final String KEY_SPORT = "keySport";
-    private static final String KEY_DATE = "keyDate";
-    private static final String KEY_LOCATION_TEXT = "keyLocationText";
-    private static final String KEY_LOCATION = "keyLocation";
-    private static final String KEY_FRIENDS_ATTENDING = "keyFriendsAttending";
-
+    private static final String KEY_SPORT_GAME = "keySportGame";
+    
     private TextView mTextTitle;
     private TextView mTextDate;
     private TextView mTextLocation;
     private ListView mListFriendsAttending;
     private Button mBtnRsvp;
 
-    public static FragmentEventDetailed newInstance(String eventHostName, Sport sport,
-            long epochTime, String languifiedLocation, LatLng location, String[] friendsAttending) {
+    public static FragmentEventDetailed newInstance(SportGame sportGame) {
 
         FragmentEventDetailed fragment = new FragmentEventDetailed();
         Bundle bundle = new Bundle();
-
-        bundle.putString(KEY_EVENT_HOST_NAME, eventHostName);
-        bundle.putParcelable(KEY_SPORT, sport);
-        bundle.putLong(KEY_DATE, epochTime);
-        bundle.putString(KEY_LOCATION_TEXT, languifiedLocation);
-        bundle.putParcelable(KEY_LOCATION, location);
-        bundle.putStringArray(KEY_FRIENDS_ATTENDING, friendsAttending);
+        
+        bundle.putParcelable(KEY_SPORT_GAME, sportGame);
 
         fragment.setArguments(bundle);
         return fragment;
@@ -75,20 +65,19 @@ public class FragmentEventDetailed extends Fragment implements View.OnClickListe
         Bundle args = getArguments();
 
         // Set the title
-        Sport sport = (Sport) args.getParcelable(KEY_SPORT);
-        String title = String.format("%s's %s Game", args.getString(KEY_EVENT_HOST_NAME),
-                sport.getName());
+        SportGame sportGame = (SportGame) getArguments().getParcelable(KEY_SPORT_GAME);
+        String title = String.format("%s's %s Game", sportGame.getHost(), sportGame.getSport());
         mTextTitle.setText(title);
 
         // Set the date
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE, MMMM d");
-        mTextDate.setText(sdf.format(new Date(args.getLong(KEY_DATE))));
+        mTextDate.setText(sdf.format(new Date(sportGame.getTimeInMillis())));
 
         // Set the location text
-        mTextLocation.setText(args.getString(KEY_LOCATION_TEXT));
+        mTextLocation.setText(sportGame.getLocationText());
 
         // Set the map
-        LatLng position = (LatLng) args.getParcelable(KEY_LOCATION);
+        LatLng position = (LatLng) sportGame.getLocation();
         FragmentMapModule fragment = FragmentMapModule.newInstance(position);
         getChildFragmentManager()
                 .beginTransaction()
@@ -102,7 +91,7 @@ public class FragmentEventDetailed extends Fragment implements View.OnClickListe
                 .addView(fakeImage);
 
         // Bind data to the listview
-        String[] names = args.getStringArray(KEY_FRIENDS_ATTENDING);
+        String[] names = {"Meghan", "Chris", "Kevin"};
         AdapterFriendsAttending adapter = new AdapterFriendsAttending(getActivity(), names);
         mListFriendsAttending.setAdapter(adapter);
 

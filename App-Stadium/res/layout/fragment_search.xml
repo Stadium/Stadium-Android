@@ -192,13 +192,29 @@
                 android:text="Search for games within a radius of" />
         </LinearLayout>
 
-        <com.rperryng.roboto.RobotoEditText
-            android:id="@+id/search_edit_radius"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/ui_spacing_larger"
-            android:inputType="number" />
+            android:orientation="horizontal" >
+
+            <com.rperryng.roboto.RobotoEditText
+                android:id="@+id/search_edit_radius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:hint="radius in"
+                android:inputType="number" />
+
+            <com.rperryng.roboto.RobotoTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/ui_spacing_normal"
+                android:layout_toRightOf="@id/search_edit_radius"
+                android:text="km" />
+        </RelativeLayout>
 
         <com.rperryng.roboto.RobotoButton
             android:id="@+id/search_btn_find_game"

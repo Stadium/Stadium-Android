@@ -27,8 +27,6 @@ public class FragmentMapModule extends SupportMapFragment {
         fragment.setArguments(bundle);
         return fragment;
     }
-    
-    
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
