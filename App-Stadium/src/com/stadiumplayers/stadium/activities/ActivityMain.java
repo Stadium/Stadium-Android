@@ -1,13 +1,13 @@
 
 package com.stadiumplayers.stadium.activities;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,9 +17,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.stadiumplayers.stadium.AppData;
 import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.adapters.AdapterNavDrawer;
 import com.stadiumplayers.stadium.common.Constants;
+import com.stadiumplayers.stadium.dialogs.DialogLogin;
 import com.stadiumplayers.stadium.dialogs.DialogLogin.OnDialogLoginListener;
 import com.stadiumplayers.stadium.fragments.FragmentEventDetailed;
 import com.stadiumplayers.stadium.fragments.FragmentMain;
@@ -30,7 +32,6 @@ import com.stadiumplayers.stadium.fragments.FragmentSearch.OnSearchButtonClicked
 import com.stadiumplayers.stadium.fragments.FragmentSearchResults;
 import com.stadiumplayers.stadium.fragments.FragmentSearchResults.OnSearchResultClickedListener;
 import com.stadiumplayers.stadium.models.NavDrawer;
-import com.stadiumplayers.stadium.models.Sport;
 import com.stadiumplayers.stadium.models.SportGame;
 
 public class ActivityMain extends FragmentActivity implements OnClickListener,
@@ -46,6 +47,13 @@ public class ActivityMain extends FragmentActivity implements OnClickListener,
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // Redirect to splash page if not logged in
+        if (!AppData.isLoggedIn()) {
+            Intent intent = new Intent(this, ActivitySplashPage.class);
+            startActivity(intent);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -166,26 +174,16 @@ public class ActivityMain extends FragmentActivity implements OnClickListener,
                             FragmentMap.class.getSimpleName()).commit();
             break;
 
-        case SUGGESTED:
-            Fragment fragmentEventDetailed = FragmentEventDetailed.newInstance(SportGame
-                    .getGenerated().get(0));
-
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.main_fragment_container, fragmentEventDetailed,
-                            FragmentEventDetailed.class.getSimpleName()).commit();
-            break;
-
-        case UPCOMING:
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.main_fragment_container, new FragmentSearchResults(),
-                            FragmentSearchResults.class.getSimpleName()).commit();
-            break;
-
         case CREATE_EVENT:
-            // TODO: check for and prompt login if necessary
+            if (!AppData.isLoggedIn()) {
+                DialogLogin dialog = DialogLogin.newInstanceWithAction("create an event");
+                dialog.show(getSupportFragmentManager(), DialogLogin.class.getSimpleName());
+            } else {
+                Toast.makeText(this, "Create an event", Toast.LENGTH_SHORT).show();
+            }
+
             break;
+
         default:
             break;
         }

@@ -29,12 +29,21 @@ public class DialogLogin extends DialogFragment implements View.OnClickListener 
         public void onKeepBrowsing();
     }
     
-    private static String KEY_STRING_ACTION = "keyStringAction";
+    private static final String KEY_STRING_ACTION = "keyStringAction";
+    private static final String KEY_FULL_MESSAGE = "keyfullMessage";
 
-    public static DialogLogin newInstance(String deferredAction) {
+    public static DialogLogin newInstanceWithAction(String deferredAction) {
         DialogLogin modalLogin = new DialogLogin();
         Bundle bundle = new Bundle();
         bundle.putString(KEY_STRING_ACTION, deferredAction);
+        modalLogin.setArguments(bundle);
+        return modalLogin;
+    }
+    
+    public static DialogLogin newInstanceWithMessage(String fullMessage) {
+        DialogLogin modalLogin = new DialogLogin();
+        Bundle bundle = new Bundle();
+        bundle.putString(KEY_FULL_MESSAGE, fullMessage);
         modalLogin.setArguments(bundle);
         return modalLogin;
     }
@@ -42,6 +51,7 @@ public class DialogLogin extends DialogFragment implements View.OnClickListener 
     private OnDialogLoginListener mListener;
     private TextView mTextMessage;
     private Button mBtnFacebookLogin;
+    private Button mBtnKeepBrowsing;
     
     @Override
     public void onAttach(Activity activity) {
@@ -55,10 +65,12 @@ public class DialogLogin extends DialogFragment implements View.OnClickListener 
 
         mTextMessage = (TextView) rootView.findViewById(R.id.login_text_message);
         mBtnFacebookLogin = (Button) rootView.findViewById(R.id.login_btn_login);
+        mBtnKeepBrowsing = (Button) rootView.findViewById(R.id.login_btn_cancel);
 
         mTextMessage.setText(String.format(Utils.getString(R.string.login_prompt_event),
                 getArguments().getString(KEY_STRING_ACTION)));
         mBtnFacebookLogin.setOnClickListener(this);
+        mBtnKeepBrowsing.setOnClickListener(this);
 
         return rootView;
     }
@@ -73,33 +85,41 @@ public class DialogLogin extends DialogFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
+        
+        switch (view.getId()) {
+        case R.id.login_btn_login:
+         // Create a facebook login request
+            Session.openActiveSession(getActivity(), true, new Session.StatusCallback() {
 
-        // Create a facebook login request
-        Session.openActiveSession(getActivity(), true, new Session.StatusCallback() {
+                @Override
+                public void call(Session session, SessionState state, Exception exception) {
+                    
+                    // If we logged in
+                    if (session.isOpened()) {
 
-            @Override
-            public void call(Session session, SessionState state, Exception exception) {
-                
-                // If we logged in
-                if (session.isOpened()) {
+                        // Create a facebook request for the logged in user's info
+                        Request.newMeRequest(session, new Request.GraphUserCallback() {
 
-                    // Create a facebook request for the logged in user's info
-                    Request.newMeRequest(session, new Request.GraphUserCallback() {
-
-                        @Override
-                        public void onCompleted(GraphUser user, Response response) {
-                            
-                            // If the request was successful
-                            if (user != null) {
+                            @Override
+                            public void onCompleted(GraphUser user, Response response) {
                                 
-                                // Save the user information
-                                AppData.init(Long.parseLong(user.getId()), user.getFirstName(),
-                                        user.getLastName(), true);
+                                // If the request was successful
+                                if (user != null) {
+                                    
+                                    // Save the user information
+                                    AppData.init(Long.parseLong(user.getId()), user.getFirstName(),
+                                            user.getLastName(), true);
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 }
-            }
-        });
+            });
+            break;
+            
+        case R.id.login_btn_cancel:
+            DialogLogin.this.dismiss();
+            break;
+        }
     }
 }

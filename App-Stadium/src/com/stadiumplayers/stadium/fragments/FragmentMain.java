@@ -29,7 +29,7 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        DialogFragment dialogLogin = DialogLogin.newInstance("create an event");
+        DialogFragment dialogLogin = DialogLogin.newInstanceWithAction("create an event");
         dialogLogin.show(getChildFragmentManager(), DialogLogin.class.getSimpleName());
     }
 

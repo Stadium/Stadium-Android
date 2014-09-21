@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/splashpage" />
+
+    <ImageView
+        android:id="@+id/splashpage_img_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/ui_spacing_gigantic"
+        android:layout_marginRight="@dimen/ui_spacing_gigantic"
+        android:layout_marginTop="@dimen/ui_spacing_gigantic"
+        android:maxHeight="240dp"
+        android:maxWidth="480dp"
+        android:src="@drawable/stadium_logo_full" />
+
+    <com.rperryng.roboto.RobotoButton
+        android:id="@+id/splashpage_btn_browse"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/ui_spacing_gigantic"
+        android:layout_marginTop="@dimen/ui_spacing_normal"
+        android:text="Browse the app first" />
+
+    <com.rperryng.roboto.RobotoButton
+        android:id="@+id/splashpage_btn_login"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/splashpage_btn_browse"
+        android:layout_centerHorizontal="true"
+        android:text="Login with facebook" >
+    </com.rperryng.roboto.RobotoButton>
+
+</RelativeLayout>
