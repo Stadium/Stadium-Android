@@ -20,13 +20,11 @@ import android.widget.Toast;
 import com.stadiumplayers.stadium.AppData;
 import com.stadiumplayers.stadium.R;
 import com.stadiumplayers.stadium.adapters.AdapterNavDrawer;
-import com.stadiumplayers.stadium.common.Constants;
 import com.stadiumplayers.stadium.dialogs.DialogLogin;
 import com.stadiumplayers.stadium.dialogs.DialogLogin.OnDialogLoginListener;
 import com.stadiumplayers.stadium.fragments.FragmentEventDetailed;
 import com.stadiumplayers.stadium.fragments.FragmentMain;
-import com.stadiumplayers.stadium.fragments.FragmentMap;
-import com.stadiumplayers.stadium.fragments.FragmentMapModule;
+import com.stadiumplayers.stadium.fragments.FragmentMapModuleMulti;
 import com.stadiumplayers.stadium.fragments.FragmentSearch;
 import com.stadiumplayers.stadium.fragments.FragmentSearch.OnSearchButtonClickedListener;
 import com.stadiumplayers.stadium.fragments.FragmentSearchResults;
@@ -61,10 +59,11 @@ public class ActivityMain extends FragmentActivity implements OnClickListener,
         mDrawerTitle = getTitle();
 
         if (savedInstanceState == null) {
+            Fragment fragmentNearMe = new FragmentMapModuleMulti();
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.main_fragment_container, new FragmentMain(),
-                            FragmentMain.class.getSimpleName()).commit();
+                    .replace(R.id.main_fragment_container, fragmentNearMe,
+                            FragmentMapModuleMulti.class.getSimpleName()).commit();
         }
 
         // Drawer intialization
@@ -167,11 +166,11 @@ public class ActivityMain extends FragmentActivity implements OnClickListener,
             break;
 
         case NEAR_ME:
-            Fragment fragmentNearMe = FragmentMapModule.newInstance(Constants.POSITION_E5_WATERLOO);
+            Fragment fragmentNearMe = new FragmentMapModuleMulti();
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.main_fragment_container, fragmentNearMe,
-                            FragmentMap.class.getSimpleName()).commit();
+                            FragmentMapModuleMulti.class.getSimpleName()).commit();
             break;
 
         case CREATE_EVENT:
